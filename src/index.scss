@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import './styles/animations.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  /* Still allow scrolling, just hide the bar */
+  overflow-y: scroll; // or auto
+}
+
+/* For WebKit browsers (Chrome, Edge, Safari, Opera) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none;
+}
+
+@layer base {
+	* {
+		@apply m-0 box-border scroll-smooth p-0 font-[Poppins];
+	}
+
+	.hash-span {
+		@apply relative z-[-1] -mt-20 block pb-12;
+	}
+
+	.app-content {
+		@apply relative bg-gradient-to-r from-grad-color-1 via-grad-color-2 to-grad-color-3;
+	}
+}
+
+@layer components {
+	//* NAVBAR *//
+	.navbar {
+		@apply fixed left-1/2 top-0 z-20 mx-auto flex w-full -translate-x-1/2 items-center bg-navbar text-primary;
+		&-container {
+			@apply mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 sm:px-12 sm:py-5 md:px-16;
+		}
+		&-logo {
+			@apply flex items-center gap-2;
+			img {
+				@apply mr-1 h-8 w-8 rounded-full object-contain xs:h-10 xs:w-10;
+			}
+			p {
+				@apply flex cursor-pointer text-lg font-bold text-white;
+			}
+			&:hover {
+				p {
+					@apply text-primary;
+				}
+			}
+		}
+		&-links {
+			@apply hidden list-none flex-row gap-10 sm:flex;
+			&-item {
+				@apply cursor-pointer text-lg font-medium hover:text-primary;
+			}
+		}
+
+		.burger {
+			@apply flex flex-1 items-center justify-end sm:hidden;
+			&-icon {
+				@apply h-7 w-7 cursor-pointer object-contain;
+			}
+		}
+
+		.menu {
+			@apply absolute right-1/2 top-16 z-10 w-full max-w-menuWidth translate-x-1/2 items-end justify-start rounded-xl bg-menu-color p-8;
+			&-list {
+				@apply flex w-full list-none flex-col items-start justify-end gap-10;
+				&-item {
+					@apply w-full cursor-pointer text-right text-4xl font-bold xs:text-6xl;
+				}
+			}
+		}
+	}
+
+	//* HERO *//
+	.hero {
+		&-content {
+			@apply h-full bg-hero bg-cover bg-center bg-no-repeat;
+		}
+		&-section {
+			@apply relative mx-auto h-dvh w-full;
+		}
+		&-header {
+			@apply absolute inset-0 top-24 mx-auto flex h-max max-w-7xl flex-row items-start gap-3 px-6 xs:gap-4 sm:gap-5 sm:px-12 md:px-16;
+			&-pin {
+				@apply ml-2.5 flex flex-col items-center justify-center xs:ml-3.5 sm:ml-3;
+			}
+			&-dot {
+				@apply h-3 w-3 rounded-full bg-blue-primary sm:h-3.5 sm:w-3.5 md:h-4 md:w-4;
+			}
+			&-line {
+				@apply blue-gradient h-40 w-[2px] xs:h-52 sm:h-60 sm:w-[3px] md:w-[3px] lg:h-64 lg:w-1;
+			}
+
+			h1 {
+				@apply relative z-10 mt-4 text-3xl font-black text-white xs:text-4xl sm:text-5xl sm:leading-normal lg:mt-3 lg:text-6xl lg:leading-snug;
+			}
+
+			p {
+				@apply relative z-10 mt-2 text-sm font-medium leading-normal text-white-100 xs:max-w-md xs:text-lg sm:text-xl lg:max-w-xl lg:text-2xl lg:leading-normal;
+			}
+		}
+	}
+
+	.hero-resume-button {
+		@apply relative z-20 inline-block rounded-xl bg-blue-primary px-6 py-2 text-sm font-medium text-white shadow-inputsOff hover:shadow-inputsOn;
+	}
+
+	.computer-canvas {
+		@apply relative top-1/2 h-1/2 -translate-y-1/2 sm:h-3/4 xl:h-full;
+	}
+
+	.bottom-button {
+		@apply absolute bottom-4 z-10 flex w-full items-center justify-center;
+		&-content {
+			@apply flex h-16 w-9 items-start justify-center rounded-3xl border-4 border-primary p-2;
+		}
+		&-ball {
+			@apply mb-1 h-3 w-3 rounded-full bg-primary;
+		}
+	}
+
+	//* CANVAS *//
+	.canvas {
+		&-loader-container {
+			@apply relative left-0 mx-auto my-0 flex -translate-x-1/2 translate-y-0 flex-col items-center justify-center;
+		}
+		&-loader-spinner {
+			@apply mx-auto my-0 h-3 w-3 scale-100 transform-gpu animate-[mulShdSpin_1s_ease_infinite] rounded-full -indent-px text-sm;
+
+			@media screen and (max-width: 449px) {
+				@apply scale-75 transform-gpu;
+			}
+		}
+		&-loader-procent {
+			@apply mx-auto my-0 mt-14 text-center text-base font-bold text-white;
+		}
+	}
+
+	//* ABOUT *//
+	.about {
+		&-text {
+			@apply mt-4 max-w-3xl text-base leading-relaxed text-primary;
+		}
+	}
+
+	//* TECH *//
+	.tech {
+		&-container {
+			@apply mx-auto -mb-0 -mt-4 flex max-w-80 flex-row flex-wrap justify-between gap-5 xs:-mb-4 xs:-mt-4 xs:max-w-sm sm:-mb-6 sm:-mt-6 md:max-w-lg lg:-mb-10 lg:-mt-10 xl:max-w-full;
+			&-item {
+				@apply h-[60px] w-[60px] xs:h-20 xs:w-20 md:h-28 md:w-28;
+			}
+		}
+	}
+
+	//* EXPERIENCE *//
+	.experience {
+		&-block {
+			@apply mt-16 flex flex-col;
+		}
+		&-line {
+			.vertical-timeline-element-content {
+				@apply bg-tertiary text-white shadow-card;
+			}
+			&-icon {
+				@apply flex h-full w-full items-center justify-center;
+			}
+			&-title {
+				@apply text-2xl font-bold text-white;
+			}
+			&-subtitle {
+				@apply m-0 text-base font-semibold text-primary;
+			}
+			&-list {
+				@apply ml-5 mt-5 list-disc space-y-2;
+			}
+			&-item {
+				@apply pl-1 text-sm tracking-wider text-white-100;
+			}
+		}
+	}
+
+	//* PROJECTS *//
+	.projects {
+		&-description {
+			@apply mt-4 max-w-3xl text-base leading-relaxed text-primary;
+		}
+		&-cards {
+			@apply mt-16 flex flex-wrap items-stretch justify-center gap-8;
+		}
+		&-card {
+			@apply green-pink-gradient h-full rounded-2xl bg-tertiary p-px md:max-w-[304px] lg:max-w-[340px] xl:max-w-[362px];
+			&-content {
+				@apply flex h-full w-full flex-col justify-between rounded-2xl bg-tertiary p-4;
+			}
+			&-preview {
+				@apply relative w-full rounded-2xl;
+			}
+			&-image {
+				@apply h-full w-full rounded-[10px] border-[1px] border-secondary object-cover sm:max-h-full;
+			}
+			&-buttons {
+				@apply absolute inset-0 m-3 flex justify-end;
+			}
+			&-button {
+				@apply black-gradient flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-secondary;
+				img {
+					@apply h-4/5 w-4/5 object-contain;
+				}
+			}
+
+			&-header {
+				@apply text-2xl font-bold text-white;
+			}
+			&-descr {
+				@apply mt-2 text-sm text-secondary;
+			}
+			&-tags {
+				@apply mt-4 flex flex-wrap gap-2;
+			}
+		}
+	}
+
+	//* CONTACT *//
+	.contact-container {
+		@apply flex flex-col-reverse items-center justify-center gap-8 overflow-hidden lg:flex-row xl:mt-12;
+
+		.contact-motion {
+			@apply w-full rounded-2xl bg-transparent p-px lg:w-2/5;
+		}
+
+		.contact-form {
+			@apply mt-10 flex flex-col gap-8;
+			fieldset {
+				@apply flex flex-col gap-8;
+				label {
+					@apply flex flex-col;
+					span {
+						@apply m-auto mb-4 w-full max-w-inputWidth font-medium text-white;
+					}
+					input,
+					textarea {
+						@apply m-auto w-full max-w-inputWidth resize-none rounded-lg border-none bg-tertiary px-6 py-4 font-normal text-white shadow-inputsOff outline-0 placeholder:text-secondary hover:shadow-inputsOn focus:shadow-inputsOn;
+					}
+				}
+				button {
+					@apply w-fit rounded-xl border-none bg-tertiary px-8 py-3 font-medium;
+				}
+				button.loading {
+					@apply pointer-events-none text-secondary outline-none;
+				}
+				button.normal {
+					@apply pointer-events-auto text-white shadow-inputsOff outline-0 hover:shadow-inputsOn focus:shadow-inputsOn;
+				}
+			}
+		}
+
+		.earth-motion {
+			@apply h-[280px] w-full sm:h-[380px] md:h-[460px] lg:h-[500px] lg:w-3/5 xl:h-[560px];
+		}
+	}
+
+	//* SOCIIALS *//
+	.socials {
+		&-container {
+			@apply mx-auto flex max-w-96 flex-row flex-wrap justify-center gap-6;
+			&-link {
+				@apply h-16 w-16 xs:h-24 xs:w-24;
+			}
+		}
+	}
+}
+
+@layer utilities {
+	//* VERTICAL-TIMELINE *//
+	.vertical-timeline-element .vertical-timeline-element-arrow,
+	.vertical-timeline-element .vertical-timeline-element-date {
+		@apply block;
+	}
+
+	.vertical-timeline-element .date-mobile {
+		@apply hidden;
+	}
+
+	@media screen and (max-width: 1169px) {
+		.vertical-timeline-element .vertical-timeline-element-date,
+		.vertical-timeline-element .date-desktop {
+			@apply hidden;
+		}
+		.vertical-timeline-element .date-mobile {
+			@apply m-0 mb-4 block;
+		}
+		.vertical-timeline-element .vertical-timeline-element-content .custom-list {
+			@apply mb-1;
+		}
+	}
+
+	//* GRADIENTS *//
+	.black-gradient {
+		@apply bg-grad-black;
+	}
+
+	.blue-gradient {
+		@apply bg-grad-blue;
+	}
+
+	.green-pink-gradient {
+		@apply bg-grad-green-pink;
+	}
+
+	.green-text-gradient {
+		@apply bg-grad-green-text bg-clip-text text-transparent;
+	}
+
+	.blue-text-gradient {
+		@apply bg-grad-blue-text bg-clip-text text-transparent;
+	}
+
+	.pink-text-gradient {
+		@apply bg-grad-pink-text bg-clip-text text-transparent;
+	}
+
+	.yellow-text-gradient {
+		@apply bg-grad-yellow-text bg-clip-text text-transparent;
+	}
+}

@@ -1,0 +1,49 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@assets/*": [
+				"src/assets/*"
+			],
+			"@components/*": [
+				"src/components/*"
+			],
+			"@constants/*": [
+				"src/constants/*"
+			],
+			"@hoc/*": [
+				"src/hoc/*"
+			],
+			"@utils/*": [
+				"src/utils/*"
+			],
+			"@/*": [
+				"src/*"
+			],
+			"@socials/*": [
+				"src/assets/socials/*"
+			],
+			"~assets/*": [
+				"src/assets/*"
+			],
+			"~components/*": [
+				"src/components/*"
+			],
+			"~constants/*": [
+				"src/constants/*"
+			],
+			"~hoc/*": [
+				"src/hoc/*"
+			],
+			"~utils/*": [
+				"src/utils/*"
+			],
+			"~/*": [
+				"src/*"
+			],
+			"~styles/*": [
+				"src/styles/*"
+			]
+		}
+	}
+}
