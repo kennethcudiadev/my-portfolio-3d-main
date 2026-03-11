@@ -1,52 +1,63 @@
-## [My-Portfolio-3D](https://exslym.github.io/my-portfolio-3d/)
+# Kenneth Cudia — Portfolio 3D
 
-[![preview](https://github.com/exslym/my-portfolio-3d/blob/main/public/preview.jpg)](https://exslym.github.io/my-portfolio-3d/)
+[![preview](public/preview.jpg)](public/preview.jpg)
 
-### An outstanding and impressive 3D Developer Portfolio website using React, 3D-graphics and animations with ThreeJS and Framer Motion,  and TailwindCSS!
-
-### Vercel Deployment: [My-Portfolio-3D](https://my-portfolio-exslym.vercel.app/)
+A 3D portfolio site built with **React**, **Three.js** / **React Three Fiber**, **Framer Motion**, and **Tailwind CSS**. Showcases projects, experience, and contact with WebGL visuals and smooth animations.
 
 ---
 
-### Installation
+## Installation
 
-```
+```bash
 npm install
 ```
 
-### Start Dev Server
+## Start dev server
 
-```
+```bash
 npm start
 ```
 
-### Build Production Version
+Runs at [http://localhost:3000](http://localhost:3000).
 
-```
+## Build for production
+
+```bash
 npm run build
 ```
 
-### Preview Build Production Version
+Output is in the `build/` folder.
 
-```
+## Preview production build
+
+```bash
 npm run serve
 ```
 
-### Deployment on GitHub Pages (Optional)
+## Deploy (e.g. GitHub Pages)
 
-```
+```bash
 npm run deploy
 ```
 
-This adds gh-pages branch to your project github repository, deploys built project there, hosts the site via GitHub Pages.
+Uses `gh-pages` to publish the `build/` folder to the `gh-pages` branch. Set `base` in `vite.config.js` to your repo path (e.g. `'/repo-name/'`) when deploying to GitHub Pages.
 
 ---
 
-### Features:
+## Features
 
-- `Legacy Browsers` support via **@vite/plugin-legacy** with built-in **babel**
-- `SCSS` support via **sass**
-- `Autoprefix` support via **postcss**
-- `3D Effects` support via **ThreeJS**
-- `Animation` support via **Framer Motion**
-- `Styles` support via **TailwindCSS**
+- **3D / WebGL** — Three.js, React Three Fiber, Drei
+- **Animations** — Framer Motion
+- **Styles** — Tailwind CSS, SCSS
+- **Legacy browsers** — @vitejs/plugin-legacy
+- **Contact** — EmailJS form; config via `.env`
+- **Resume** — Download link; PDF in `public/`
+
+## Env setup
+
+Copy or create `.env` in the project root with:
+
+- `VITE_APP_EMAILJS_*` — EmailJS keys and recipient
+- `VITE_APP_GITHUB_URL` / `VITE_APP_LINKEDIN_URL` — Social links
+
+See `.env.example` or the top of `src/constants/index.js` for defaults.
