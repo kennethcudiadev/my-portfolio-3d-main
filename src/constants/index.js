@@ -130,6 +130,19 @@ const experiences = [
 // Add project: put image in public/projects/, then add one object below. Use source_code_link: '#' if private.
 const projects = [
 	{
+		name: 'Global Disaster Risk Explorer',
+		description:
+			'Interactive 3D globe for exploring earthquake data worldwide. Filter by year and magnitude, view USGS data with charts and optional density heatmap.',
+		tags: [
+			{ name: 'react', color: 'blue-text-gradient' },
+			{ name: 'threejs', color: 'green-text-gradient' },
+			{ name: 'typescript', color: 'pink-text-gradient' },
+		],
+		image: `${base}projects/project4.jpg`,
+		source_code_link: 'https://github.com/kennethcudiadev/DisasterExplorer-main',
+		website_link: 'https://disaster-explorer-main.vercel.app/',
+	},
+	{
 		name: 'Shoe Configurator',
 		description:
 			'Browser-based 3D shoe configurator for e-commerce. Customize materials and colors in real time with Three.js and React, optimized for product presentation.',
