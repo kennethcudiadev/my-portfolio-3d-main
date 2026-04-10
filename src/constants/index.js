@@ -24,14 +24,18 @@ const githubUrl = (() => {
 	const fromEnv = String(import.meta.env.VITE_APP_GITHUB_URL || '').trim();
 	if (fromEnv && fromEnv !== 'https://github.com') return fromEnv;
 	const fromUser = String(import.meta.env.VITE_APP_GITHUB_USER || '').trim();
-	const built = fromUser ? `https://github.com/${fromUser}`.replace(/\/?$/, '') : '';
+	const built = fromUser
+		? `https://github.com/${fromUser}`.replace(/\/?$/, '')
+		: '';
 	if (built && built !== 'https://github.com') return built;
 	return DEFAULT_GITHUB_URL;
 })();
 
 const linkedinUrl = (() => {
 	const raw = String(
-		import.meta.env.VITE_APP_LINKEDIN_URL || import.meta.env.VITE_APP_LINKEDIN_USER || ''
+		import.meta.env.VITE_APP_LINKEDIN_URL ||
+			import.meta.env.VITE_APP_LINKEDIN_USER ||
+			''
 	).trim();
 	if (!raw) return DEFAULT_LINKEDIN_URL;
 	return raw.startsWith('http') ? raw : `https://${raw.replace(/^\/+/, '')}`;
@@ -139,7 +143,8 @@ const projects = [
 			{ name: 'typescript', color: 'pink-text-gradient' },
 		],
 		image: `${base}projects/project4.jpg`,
-		source_code_link: 'https://github.com/kennethcudiadev/DisasterExplorer-main',
+		source_code_link:
+			'https://github.com/kennethcudiadev/DisasterExplorer-main',
 		website_link: 'https://disaster-explorer-main.vercel.app/',
 	},
 	{
@@ -153,20 +158,22 @@ const projects = [
 		],
 		image: `${base}projects/project2.jpg`,
 		source_code_link: 'https://github.com/kennethcudiadev/shoe-configurator',
-		website_link: 'https://shoe-configurator-aalm-7ri2lkd9e-kennethcudiadevs-projects.vercel.app/',
+		website_link:
+			'https://shoe-configurator-aalm-7ri2lkd9e-kennethcudiadevs-projects.vercel.app/',
 	},
 	{
-		name: 'Watch Configurator',
+		name: '3D Interior Floor Plan Configurator',
 		description:
-			'3D watch configurator built with React Three Fiber, Drei, and GSAP. Customize band, case, and dial colors with a live 3D preview.',
+			'Interactive 3D room planner built with React Three Fiber, Drei, and GSAP. Users can edit floor plans, place furniture, explore layouts in real time, and view dynamic cost updates for a more practical interior planning experience.',
 		tags: [
 			{ name: 'react', color: 'blue-text-gradient' },
 			{ name: 'r3f', color: 'green-text-gradient' },
 			{ name: 'gsap', color: 'pink-text-gradient' },
 		],
 		image: `${base}projects/project3.jpg`,
-		source_code_link: 'https://github.com/kennethcudiadev/CarConfigurator-main',
-		website_link: 'https://car-configurator-bcfm.vercel.app/',
+		source_code_link:
+			'https://github.com/kennethcudiadev/Interactive-3D-Room-Planner',
+		website_link: 'https://interactive-3-d-room-planner.vercel.app/',
 	},
 	{
 		name: 'Globe',
